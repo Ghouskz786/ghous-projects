@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  
+  </head>
+  <style>
+    * {
+  padding: 0px;
+  margin: 0px;
+}
+
+.heading{
+      color: blue;
+}
+  </style>
+  <body style="
+  gap: 40px;">
+    <h1 class="heading" style=" align-self: center;
+  ;">Order</h1>
+
+    <div style="box-sizing: border-box;
+  box-shadow: black, 50px;
+  
+  min-width: 200px;
+  max-width: fit-content;
+ 
+  gap: 30px;">
+      <div style="  display: flex;
+  justify-content: space-between;">
+        <span>Name: </span><span style="font-weight: 500;
+  padding-left: 10px;" ><%=name%></span>
+      </div>
+      <div style="  display: flex;
+  justify-content: space-between;">
+        <span>Contact: </span><span style="  font-weight: 500;
+  padding-left: 10px;" ><%= contact%></span>
+      </div>
+      <div style="  display: flex;
+  justify-content: space-between;">
+        <span>Email: </span><span style="  font-weight: 500;
+  padding-left: 10px;" ><%=email%></span>
+      </div>
+      <div style="  display: flex;
+  justify-content: space-between;">
+        <span>Address: </span><span style="  font-weight: 500;
+  padding-left: 10px;" ><%=address%></span>
+      </div>
+      <div style="  display: flex;
+  justify-content: space-between;">
+        <span>Order ammount: </span><span style="  font-weight: 500;
+  padding-left: 10px;" ><%=price%></span>
+      </div>
+    </div>
+    
+ <!-- font-size: 20px; -->
+
+    <div style="width: fit-content;
+  align-self: center;
+  margin-top: 20px;">
+      <div style="  
+  display: flex;">
+        <span style="  border: 1px, solid, black;
+  margin: 0px;
+  height: fit-content;
+  padding: 3px;
+ width: 95px;">Item Name</span>
+        <span style="  border: 1px, solid, black;
+  margin: 0px;
+  height: fit-content;
+  padding: 3px;
+
+  width: 95px;
+  ">Item Price</span>
+        <span style="  border: 1px, solid, black;
+  margin: 0px;
+  height: fit-content;
+  padding: 3px;
+
+  width: 130px;
+  ">Item Description</span>
+      </div>
+      <%cart.map(item=>{%>
+      <div style="display: flex;">
+        <span style="  border: 1px, solid, black;
+ width: 95px;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;" ><%=item.itemName%></span>
+        <span style="  border: 1px, solid, black;
+  width: 95px;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;"><%= item.itemPrice%></span>
+        <span style="  border: 1px, solid, black;
+
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  "
+          ><%=item.itemDescription%></span
+        >
+      </div>
+          <%})%>
+    </div>
+
+  </body>
+</html>

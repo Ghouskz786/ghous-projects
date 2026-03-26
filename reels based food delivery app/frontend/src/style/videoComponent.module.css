@@ -1,0 +1,11 @@
+@keyframes loader-transition {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loader {
+  animation: loader-transition infinite 0.5s 0s ease-in-out;
+}

@@ -1,0 +1,139 @@
+@import "tailwindcss";
+@keyframes loader-transition {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loader {
+  animation: loader-transition infinite 0.5s 0s ease-in-out;
+}
+.scrollContainer {
+  scroll-snap-type: y mandatory;
+}
+div ::-webkit-scrollbar {
+  display: none;
+}
+@keyframes progressAnimation {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 100vw;
+  }
+}
+.progressBar {
+  animation: progressAnimation linear;
+}
+
+@keyframes movingAnimation {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes movingAnimationY {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes movingAnimationYDown {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes movingAnimationXRight {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes disappearAnimationX {
+  from {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100px);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes disappearAnimationX1 {
+  from {
+    transform: translateX(30px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+@keyframes movingAnimationXForHome {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(30px);
+  }
+}
+@keyframes disappearAnimationXRight {
+  from {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100px);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.movingTransitionX {
+  animation: movingAnimation 1s forwards ease-out;
+}
+.movingTransitionY {
+  animation: movingAnimationY 1s forwards ease-in-out;
+}
+.movingTransitionYDown {
+  animation: movingAnimationYDown 1s forwards ease-in-out;
+}
+.movingTransitionXRight {
+  animation: movingAnimationXRight 1s forwards ease-in-out;
+}
+.CommentTransition {
+  animation: movingAnimationXRight 1s forwards ease-in-out;
+  @media (width<400px) {
+    animation: movingAnimationYDown 1s forwards ease-in-out;
+  }
+}
+.disappearTransitionX {
+  animation: disappearAnimationX 1s forwards ease-in-out;
+}
+.disappearTransitionX1 {
+  animation: disappearAnimationX1 1s forwards ease-out;
+}
+.movingTransitionXForHome {
+  animation: movingAnimationXForHome 1s forwards ease-in-out;
+}
+.disappearTransitionXRight {
+  animation: disappearAnimationXRight 1s forwards ease-in-out;
+}
