@@ -11,13 +11,13 @@ const AddProjectElement = () => {
   const [FileSelected, setFileSelected] = useState(false);
   const navigate = useNavigate();
   const handleAddProject = async (e) => {
-    console.log(e.get("projectImg"));
+    
     const formData = new FormData();
     formData.append("title", e.get("title"));
     formData.append("description", e.get("description"));
     formData.append("projectGithub", e.get("projectGithub"));
     formData.append("projectImg", e.get("projectImg"));
-    console.log(formData.get("title"));
+  
     const res = await (
       await fetch("https://ghous-projects.vercel.app/project/add-project", {
         credentials: "include",
@@ -32,7 +32,7 @@ const AddProjectElement = () => {
       setErrors(res.messages);
     }
     setLoader(false);
-    console.log(res);
+
   };
   const handleAdding = () => {
     setErrors([]);
@@ -57,7 +57,7 @@ const AddProjectElement = () => {
     })();
   }, []);
   const handleFileSelected = (e) => {
-    console.log(e);
+
     if (e.target.files.length !== 0) {
       setFileSelected(true);
     }
