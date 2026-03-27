@@ -13,7 +13,7 @@ app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 let isConnected = false;
 app.use(async (req, res, next) => {
   if (!isConnected) {
-    await mongoose.connect(process.env.MONGOOSE_URL);
+    await mongoose.connect(process.env.MONGOOSE_URI);
     isConnected = true;
   }
   next();
