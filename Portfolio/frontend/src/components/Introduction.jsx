@@ -33,7 +33,7 @@ const Introduction = ({ entry, handleMoveToContact }) => {
     const resObj = await res.blob();
     element.href = URL.createObjectURL(resObj);
     element.download = "ghous resume.pdf";
-    console.log(element);
+
     window.document.body.appendChild(element);
     element.click();
     URL.revokeObjectURL(resObj);
