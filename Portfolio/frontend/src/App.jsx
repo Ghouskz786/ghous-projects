@@ -37,7 +37,7 @@ function App() {
     setLoading(true);
     (async () => {
       const res = await (
-        await fetch("http://localhost:3000/project/get-project", {
+        await fetch("https://ghous-projects.vercel.app/project/get-project", {
           method: "get",
           credentials: "include",
         })

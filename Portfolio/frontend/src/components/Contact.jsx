@@ -16,7 +16,7 @@ const Contact = () => {
   }, [InView]);
   const handleContactForm = async (e) => {
     const res = await (
-      await fetch("http://localhost:3000/contact/contact-me", {
+      await fetch("https://ghous-projects.vercel.app/contact/contact-me", {
         method: "post",
         credentials: "include",
         headers: { "content-type": "application/json" },

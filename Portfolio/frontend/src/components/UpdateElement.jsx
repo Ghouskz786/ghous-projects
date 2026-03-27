@@ -8,7 +8,7 @@ const UpdateElement = () => {
   const navigate = useNavigate();
   const handleGet = async (e) => {
     const res = await (
-      await fetch("http://localhost:3000/auth/verify-token", {
+      await fetch("https://ghous-projects.vercel.app/auth/verify-token", {
         method: "post",
         body: JSON.stringify({ otp: e.get("otp") }),
         credentials: "include",
@@ -25,7 +25,7 @@ const UpdateElement = () => {
     setLoading(true);
     (async () => {
       const res = await (
-        await fetch("http://localhost:3000/auth/verify", {
+        await fetch("https://ghous-projects.vercel.app/auth/verify", {
           method: "post",
           credentials: "include",
         })

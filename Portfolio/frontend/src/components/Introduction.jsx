@@ -21,10 +21,13 @@ const Introduction = ({ entry, handleMoveToContact }) => {
     setDarked(false);
   };
   const handleDownloadResume = async () => {
-    const res = await fetch("http://localhost:3000/resume/download-resume", {
-      method: "post",
-      credentials: "include",
-    });
+    const res = await fetch(
+      "https://ghous-projects.vercel.app/resume/download-resume",
+      {
+        method: "post",
+        credentials: "include",
+      },
+    );
     const element = window.document.createElement("a");
 
     const resObj = await res.blob();

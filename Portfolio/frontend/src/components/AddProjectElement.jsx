@@ -19,7 +19,7 @@ const AddProjectElement = () => {
     formData.append("projectImg", e.get("projectImg"));
     console.log(formData.get("title"));
     const res = await (
-      await fetch("http://localhost:3000/project/add-project", {
+      await fetch("https://ghous-projects.vercel.app/project/add-project", {
         credentials: "include",
         method: "post",
         body: formData,
@@ -42,10 +42,13 @@ const AddProjectElement = () => {
     setLoading(true);
     (async () => {
       const res = await (
-        await fetch("http://localhost:3000/auth/check-is-verified", {
-          credentials: "include",
-          method: "post",
-        })
+        await fetch(
+          "https://ghous-projects.vercel.app/auth/check-is-verified",
+          {
+            credentials: "include",
+            method: "post",
+          },
+        )
       ).json();
       if (!res.success) {
         navigate("/update-portfolio");
