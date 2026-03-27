@@ -10,7 +10,14 @@ const resumeRoute = require("./Routes/resume.js");
 require("dotenv").config();
 const app = express();
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
-
+let isConnected = false;
+app.use(async (req, res, next) => {
+  if (!isConnected) {
+    await mongoose.connect(process.env.MONGOOSE_URL);
+    isConnected = true;
+  }
+  next();
+});
 app.use(multer({ storage: multer.memoryStorage() }).single("projectImg"));
 app.use(cookieParser());
 app.use(express.json());
