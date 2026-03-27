@@ -9,7 +9,7 @@ const AfterIntroduction = () => {
   const [ref, InView] = useInView({ threshold: 0.1 });
   useEffect(() => {
     if (InView) {
-      console.log(InView);
+     
       setApplyTransition(true);
     } else {
       setApplyTransition(false);
