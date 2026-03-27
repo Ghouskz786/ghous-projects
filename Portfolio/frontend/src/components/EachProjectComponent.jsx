@@ -17,7 +17,7 @@ const EachProjectComponent = ({ item }) => {
   }, [divRef.current]);
 
   const handleShowText = () => {
-    console.log(ShowMoreButton);
+  
     setShowMoreButton(false);
     setChangeHeight(true);
   };
