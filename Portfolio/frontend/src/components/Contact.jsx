@@ -7,7 +7,7 @@ const Contact = () => {
   const [ref, InView] = useInView({ threshold: 0.1 });
   const [ApplyTransition, setApplyTransition] = useState(false);
   useEffect(() => {
-    console.log(InView);
+
     if (InView) {
       setApplyTransition(true);
     } else {
