@@ -15,7 +15,7 @@ const Header = ({
     setMenueVisible(
       MenueVisible === "" || MenueVisible === "hidden" ? "show" : "hidden",
     );
-    console.log(MenueVisible);
+
   };
   return (
     <div
