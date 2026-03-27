@@ -9,7 +9,7 @@ const contactRoute = require("./Routes/contact.js");
 const resumeRoute = require("./Routes/resume.js");
 require("dotenv").config();
 const app = express();
-app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
+app.use(cors({ credentials: true, origin: "https://ghous-projects-tu3t.vercel.app/" }));
 let isConnected = false;
 app.use(async (req, res, next) => {
   if (!isConnected) {
