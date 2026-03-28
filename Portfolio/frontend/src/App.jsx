@@ -8,12 +8,15 @@ import PortfolioComponent from "./components/PortfolioComponent.jsx";
 import ServicesComponent from "./components/ServicesComponent.jsx";
 import AfterIntroduction from "./components/AfterIntroduction.jsx";
 import Footer from "./components/Footer.jsx";
+import { useLoaderData } from "react-router-dom";
+export function HydrateFallback() {
+  return <div className="mt-52 text-center">Loading...</div>; // Or a spinner
+}
 function App() {
   const [ref, InView, entry] = useInView({ threshold: 1 });
-
+  const data = useLoaderData();
   const [Projects, setProjects] = useState([]);
   const [Errors, setErrors] = useState([]);
-  const [Loading, setLoading] = useState(false);
   const [IntroInView, setIntroInView] = useState(false);
   const introRef = useRef("");
   const divRef = useRef(null);
@@ -34,21 +37,11 @@ function App() {
     }
   }, [InView]);
   useEffect(() => {
-    setLoading(true);
-    (async () => {
-      const res = await (
-        await fetch("https://ghous-projects.vercel.app/project/get-project", {
-          method: "get",
-          credentials: "include",
-        })
-      ).json();
-      if (res.success) {
-        setProjects(res.projects);
-      } else {
-        setErrors(res.messages);
-      }
-      setLoading(false);
-    })();
+    if (!data.success) {
+      setErrors(data.Errors);
+    } else {
+      setProjects(data.projects);
+    }
   }, []);
   const handleScrollHome = () => {
     introRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -62,9 +55,7 @@ function App() {
   const handleScrollProjects = () => {
     projectRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
   };
-  if (Loading) {
-    return <div className="mt-52 text-center">Loading...</div>;
-  }
+
   if (Errors.length !== 0) {
     return (
       <div className="mt-52 ">
