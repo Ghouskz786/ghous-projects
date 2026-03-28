@@ -17,6 +17,7 @@ const handleLoader = async () => {
   } else {
     return { success: false, Errors: res.messages };
   }
+  };
 const route = createBrowserRouter([
   { path: "/", element: <App></App>,    loader: handleLoader,
     hydrateFallbackElement: <HydrateFallback /> },
@@ -31,4 +32,4 @@ createRoot(document.getElementById("root")).render(
   </RouterProvider>,
 );
 
-};
+
